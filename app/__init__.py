@@ -1,5 +1,5 @@
 # Import flask and template operators
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 
 # Define the WSGI application object
@@ -12,8 +12,12 @@ app.config.from_object('config')
 # From db import Connection
 # db = Connection()
 
-# by modules and controllers
 @app.route("/")
+def gohome():
+    return redirect(url_for('home'))
+
+# by modules and controllers
+@app.route("/home")
 def home():
     return render_template('home.html')
 
