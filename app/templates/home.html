@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+ <head>
     <meta charset="utf-8">
     <title>HockeyML</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ url_for('static',  filename='css/bootstrap.min.css') }}"
 		rel="stylesheet">
   </head>
+  <header>
+   <div class="navbar-header">
+    </div>
+        <ul class="nav nav-pills" role="tablist">
+          <a class="navbar-brand" href="#">
+	    <img style="max-width:35px; margin-top: -2px;"
+	     src="{{ url_for('static', filename='images/mainlogo.jpg')}}">
+	  </a>
 
+	  <a href="/game-predictions">
+	    <button type="button" class="btn btn-primary"
+		    style="margin-right:2px" aria-label="Left Align">
+	      <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+		Game Predictions
+	      </span>
+	    </button>
+	  </a>
+	  <a href="/twitter-predictions">
+	    <button type="button" class="btn btn-primary"
+		    style="margin-right:2px" aria-label="Left Align">
+	      <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+		Twitter Predictions
+	      </span>
+	    </button>
+	  </a>
+	  <a href="/twitter-predictions">
+	    <button type="button" class="btn btn-primary"
+		    style="margin-right:2px" aria-label="Left Align">
+	      <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+		Historical Predictions
+	      </span>
+	    </button>
+	  </a>
+	  <a href="/browse">
+	    <button type="button" class="btn btn-primary"
+		    style="margin-right:2px" aria-label="Left Align">
+	      <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+		Browse Database
+	      </span>
+	    </button>
+	  </a>
+	</ul>
+  </header>
+  
+
+  
   <body>
-    <h1> HockeyML - Your NHL Predictions Engine </h1>
+    <div class="breadcrumb" role="alert" style="max-width:700px">
+      <h3> HockeyML - Your NHL Predictions Engine </h3>
+    </div>
+
+
+    {% for game in CONTENT['games'] %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+    	<h5 class="card-title">{{game[0]}}</h5>
+    	<p class="card-text">{{game[1]}} vs {{game[2]}}</p>
+      </div>
+    </div>
+    {% endfor %}
+
+    
+
   </body>
 
+  
 </html>
+
+
+
