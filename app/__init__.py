@@ -7,13 +7,13 @@ from flask import Flask, render_template, redirect, url_for
 # which should be updated to give updated content
 # Content updated approximately daily
 # for the home page for now this is just the game 
+
+from . import content_management 
 # from content_mangement import cms, cms_stream
-# content = cms.load()
+cms = content_management.CMS()
+content = cms.load()
 # tweets = cms_stream.load('tweets')
 
-# standin
-content = {'games':[['2-24-19','Buffalo', 'Pittsburgh'],
-                    ['2-24-19', 'Chicago', 'Philadelphia']]}
 
 
 # Define the WSGI application object
